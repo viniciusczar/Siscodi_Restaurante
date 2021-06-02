@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding/Clientes.jrxml=UTF-8
+encoding/DeliveryPorClientes.jrxml=UTF-8
+encoding/DeliveryPorData.jrxml=UTF-8
+encoding/DeliveryPorPedido.jrxml=UTF-8
+encoding/Funcionarios.jrxml=UTF-8
+encoding/Produtos.jrxml=UTF-8
+encoding/ProdutosPorCategoria.jrxml=UTF-8
+encoding/VendaPorID.jrxml=UTF-8
+encoding/Vendas.jrxml=UTF-8
+encoding/VendasPorData.jrxml=UTF-8
+encoding/VendasPorMesa.jrxml=UTF-8

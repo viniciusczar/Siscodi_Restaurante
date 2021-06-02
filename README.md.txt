@@ -1,0 +1,1 @@
+Para iniciar a conexão com o banco: Edite as configurações default de conexão ao MySql em conDB.dll.

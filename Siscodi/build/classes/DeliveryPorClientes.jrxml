@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8fbd02f2-1405-4147-984e-68db84a3347a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="primeiraCategoria" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Caique\\Documents\\new\\PubManager\\relatorios\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select c.nome , d.idDelivery, d.endereco , d.telefone, d.totalPedido, D.dataVenda 
+from delivery d, clientes c where d.idClientes = c.idClientes  and d.status = 'FECHADO' and d.idClientes LIKE $P{primeiraCategoria};]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idDelivery" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalPedido" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataVenda" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="soma" class="java.lang.Float" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalPedido}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="145" y="35" width="279" height="35" uuid="b293a0fd-4e24-4348-b702-ec98bedc6ef8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relação de Delivery]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="0" width="279" height="35" forecolor="#FF6633" uuid="cb7893de-50b7-4c7b-aa48-2f236b427c4b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SISCODI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60">
+			<staticText>
+				<reportElement x="0" y="1" width="66" height="20" uuid="164b8151-1d28-4037-ae8f-b6949aa9f682"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Por cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="0" width="50" height="20" uuid="4c874448-7efb-42ac-a0b1-434ac68daa82"/>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="19" width="50" height="20" uuid="967696ca-d2c5-4068-959a-526863aaa980"/>
+				<text><![CDATA[Endereço:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="0" width="187" height="20" uuid="c0e5327a-b2a4-4410-b3ab-4a316576ac88"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="19" width="187" height="20" uuid="762c4c9f-fb09-47f3-b788-14fea720d791"/>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="267" y="39" width="50" height="20" uuid="adebacde-f3e5-4342-bf5d-cc1e1ecede24"/>
+				<text><![CDATA[Telefone:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="39" width="100" height="20" uuid="4ea8abef-07c8-4f99-aaef-0c85a6e67c26"/>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="1" width="100" height="20" uuid="1af2b99d-8a50-4748-a9db-1f494b08b59c"/>
+				<textFieldExpression><![CDATA[$P{primeiraCategoria}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="22" width="66" height="20" uuid="3e2ceec0-e590-4d66-9e76-219e177f1884"/>
+				<text><![CDATA[ID Delivery.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="22" width="100" height="20" uuid="ac1dac5b-8cf5-4341-b473-edf509576a76"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="22" width="100" height="20" uuid="c24039ac-79a3-4f17-b573-ad8fc780d7bd"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement x="-1" y="23" width="555" height="1" uuid="0c925cd4-8dbe-4c52-b6c8-761b89a91558"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="-1" width="555" height="1" uuid="ae3e47f9-578d-4c69-93c1-fa7de2479fe4"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="4" width="100" height="20" uuid="5c996d2b-a644-4603-8ec3-71340e217a22"/>
+				<textFieldExpression><![CDATA[$F{idDelivery}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="4" width="100" height="20" uuid="5feca300-ec06-4d45-b8f2-74f52b76590a"/>
+				<textFieldExpression><![CDATA[$F{totalPedido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="3" width="47" height="20" uuid="2fe7e163-eb12-4194-99f7-19c8123393eb"/>
+				<textFieldExpression><![CDATA[$F{dataVenda}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="34" width="100" height="20" uuid="7257ff7f-291c-4d97-99be-6d73e64d9fe4"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="401" y="0" width="153" height="42" uuid="86cc754c-1255-4caf-9149-d6e64ac4cec3"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{soma}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="267" y="0" width="100" height="42" uuid="b6c996b9-efcc-4403-a658-0b322f3fa202"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
